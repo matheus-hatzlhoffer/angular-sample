@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "format:test": "prettier --list-different \"./projects/**/*.{ts,html,scss,json}\"",
+    "format:write": "prettier --write \"./projects/**/*.{ts,html,scss,json}\"",
+    "analyze": "ng build --stats-json --output-hashing none --named-chunks && esbuild-visualizer --template treemap --metadata dist/sample-app/stats.json --filename dist/sample-app/analyse/index.html && http-server -o -c-1 ./dist/sample-app/analyse/",
+    "lint": "ng lint"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
@@ -24,12 +28,18 @@
     "@angular/build": "^22.1.5",
     "@angular/cli": "^22.1.5",
     "@angular/compiler-cli": "^22.1.0",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/postcss": "^4.1.12",
+    "angular-eslint": "22.1.0",
+    "esbuild-visualizer": "^0.7.0",
+    "eslint": "^10.6.0",
+    "http-server": "^14.1.1",
     "jsdom": "^28.0.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.6",
     "tailwindcss": "^4.1.12",
     "typescript": "~6.0.2",
+    "typescript-eslint": "8.62.1",
     "vitest": "^4.0.8"
   }
 }

@@ -1,12 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { MainLayout } from "./layout/main-layout/main-layout";
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [MainLayout],
   selector: 'sample-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  template: `<sample-main-layout/>`,
 })
-export class App {
-  protected readonly title = signal('sample-app');
-}
+export class App {}
